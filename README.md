@@ -6,6 +6,7 @@
 - http://prometheus-server.local
 - http://prometheus-alertmanager.local
 - http://prometheus-grafana.local
+- http://web.local
 
 ## Setup
 The following assumes that ```Helm``` has been installed and a ```Kubernetes``` cluster has been configured and selected.
