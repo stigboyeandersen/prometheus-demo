@@ -33,13 +33,13 @@ data:
         #gzip  on;
 
         include /etc/nginx/conf.d/*.conf;
-    }
 
-    server {
-      listen 80;
-      location /nginx_status {
-          stub_status;
-          allow 127.0.0.1;  # Allow only internal access
-          deny all;
-      }
+        server {
+          listen 80;
+          location /nginx_status {
+              stub_status;
+              allow 127.0.0.1;  # Allow only internal access
+              deny all;
+          }
+        }
     }

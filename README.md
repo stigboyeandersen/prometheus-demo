@@ -1,12 +1,8 @@
 # Prometheus demo
+The following links provides background info for this demo:
 
-## Links
 - [Prometheus overview](https://devopscube.com/prometheus-architecture/)
 - [Prometheus operator](https://prometheus-operator.dev)
-- http://prometheus-server.local
-- http://prometheus-alertmanager.local
-- http://prometheus-grafana.local
-- http://web.local
 
 ## Setup
 The following assumes that ```Helm``` has been installed and a ```Kubernetes``` cluster has been configured and selected.
@@ -42,4 +38,18 @@ Finally configure the following entries in the hosts file ```/etc/hosts```
 127.0.0.1   prometheus-alertmanager.local
 127.0.0.1   prometheus-grafana.local
 127.0.0.1   web.local
+```
+
+## Access
+To access the various parts of the demo use the links below:
+
+- http://prometheus-server.local
+- http://prometheus-alertmanager.local
+- http://prometheus-grafana.local
+- http://web.local
+
+To get the Grafana admin password run the following command:
+
+```sh
+kubectl --namespace prometheus get secrets prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 ```

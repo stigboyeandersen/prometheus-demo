@@ -9,4 +9,4 @@ spec:
     matchLabels:
       app: web
   endpoints:
-  - port: web
+  - port: metrics

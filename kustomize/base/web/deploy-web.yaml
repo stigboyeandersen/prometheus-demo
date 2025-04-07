@@ -12,6 +12,15 @@ spec:
       labels:
         app: web
     spec:
+      initContainers:
+      - name: nginx-prometheus-exporter
+        image: nginx/nginx-prometheus-exporter:latest
+        args:
+        - "-nginx.scrape-uri=http://localhost/nginx_status"
+        ports:
+        - containerPort: 9113
+        restartPolicy: Always
+   
       containers:
       - name: web
         image: nginx:1.17.6
