@@ -15,3 +15,12 @@ spec:
       containers:
       - name: web
         image: nginx:1.17.6
+        volumeMounts:
+        - name: cm-web
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+
+      volumes:
+      - name: cm-web
+        configMap:
+          name: cm-web

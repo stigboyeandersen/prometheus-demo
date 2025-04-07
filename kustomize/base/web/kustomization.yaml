@@ -5,6 +5,7 @@ namespace: web
 
 resources:
   - ns-web.yaml
+  - cm-web.yaml
   - deploy-web.yaml
   - svc-web.yaml
   - servicemonitor-web.yaml
