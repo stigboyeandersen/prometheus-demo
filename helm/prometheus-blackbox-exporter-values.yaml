@@ -171,6 +171,10 @@ config:
         valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
         follow_redirects: true
         preferred_ip_protocol: "ip4"
+        tls_config:
+          insecure_skip_verify: false
+        fail_if_ssl: false
+        fail_if_not_ssl: true
 
 # Set custom config path, other than default /config/blackbox.yaml. If let empty, path will be "/config/blackbox.yaml"
 # configPath: "/foo/bar"

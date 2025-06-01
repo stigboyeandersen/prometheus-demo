@@ -4,6 +4,7 @@ metadata:
   name: prometheus-grafana
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: prometheus
 spec:
   ingressClassName: nginx
   rules:
@@ -17,3 +18,13 @@ spec:
             name: prometheus-grafana
             port:
               number: 80
+  - host: api-prometheus-grafana.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 3000
