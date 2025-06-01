@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: blackbox-frontdoor
+  labels:
+    release: prometheus
+spec:
+  jobName: blackbox-frontdoor
+  prober:
+    url: prometheus-blackbox-prometheus-blackbox-exporter.prometheus-blackbox.svc.cluster.local:9115
+  module: http_2xx
+  targets:
+    staticConfig:
+      static:
+        - https://mobilepay.dk
+        - https://mobilepay.fi
+        - https://vipps.no
+        - https://vipps.se

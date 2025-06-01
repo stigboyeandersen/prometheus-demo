@@ -9,3 +9,4 @@ resources:
   - deploy-web.yaml
   - svc-web.yaml
   - servicemonitor-web.yaml
+  - probe-blackbox-web.yaml

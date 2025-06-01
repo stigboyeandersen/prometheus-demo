@@ -10,3 +10,30 @@ spec:
       app: web
   endpoints:
   - port: metrics
+  - port: web
+    interval: 30s
+    path: /probe
+    params:
+      module: [http_2xx]
+    relabelings:
+    - sourceLabels: [__address__]
+      targetLabel: __param_target
+    - sourceLabels: [__param_target]
+      targetLabel: instance
+    - targetLabel: __address__
+      replacement: prometheus-blackbox-prometheus-blackbox-exporter.prometheus-blackbox.svc.cluster.local:9115
+
+
+# Needed if a host header should be applied to the request.
+    #   relabelings:
+    # - sourceLabels: [__address__]
+    #   regex: (.*)
+    #   targetLabel: __param_target
+    #   replacement: ${1}?host=example.com
+    # - sourceLabels: [__param_target]
+    #   targetLabel: instance
+    # - targetLabel: __address__
+    #   replacement: prometheus-blackbox-prometheus-blackbox-exporter.prometheus-blackbox.svc.cluster.local:9115
+    # metricRelabelings:
+    # - targetLabel: host
+    #   replacement: example.com
