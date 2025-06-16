@@ -6,3 +6,4 @@ resources:
   - prometheus-alertmanager.yaml
   - prometheus-server.yaml
   - prometheus-grafana.yaml
+  - argo-cd.yaml
