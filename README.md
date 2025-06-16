@@ -93,7 +93,7 @@ helm upgrade argo-cd argo/argo-cd -f helm/argo-cd-values.yaml
 To get access to the default Grafana installation run the following to get the password for the admin user:
 
 ```sh
-kubectl get secrets prometheus-grafana -o jsonpath="{.data.admin-password}" -n prometheus | base64 -d ; echo
+kubectl get secret prometheus-grafana -o jsonpath="{.data.admin-password}" -n prometheus | base64 -d ; echo
 ```
 
 ### Argo cd
