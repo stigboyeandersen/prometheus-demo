@@ -43,6 +43,8 @@ kubectl create namespace argo-cd
 helm install argo-cd argo/argo-cd -f helm/argo-cd-values.yaml
 ```
 
+After installing Argo a test repo should be configured.
+
 #### Install web site
 
 Run this to complete the installation and install the test website (~/git/private/prometheus).
