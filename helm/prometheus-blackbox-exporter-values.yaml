@@ -175,6 +175,15 @@ config:
           insecure_skip_verify: false
         fail_if_ssl: false
         fail_if_not_ssl: true
+# With 'tls: true', Blackbox Exporter won’t be fooled by phantom open ports in Azure. It now demands both a TCP connection AND a valid 
+# TLS handshake. Adding 'tls: true' is a bit more expensive in terms of CPU usage, roundtrip time etc. but it's nessessary in Azure to 
+# determine if a port is actually open or not. Due to the "expensive" nature of this check, it is recommended to only use use it in 
+# probes with 30s intervals or more.
+    tcp_connect:
+      prober: tcp
+      timeout: 5s
+      tcp:
+        tls: true
 
 # Set custom config path, other than default /config/blackbox.yaml. If let empty, path will be "/config/blackbox.yaml"
 # configPath: "/foo/bar"

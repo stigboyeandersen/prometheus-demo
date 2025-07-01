@@ -9,11 +9,8 @@ spec:
   prober:
     url: prometheus-blackbox-prometheus-blackbox-exporter.prometheus-blackbox.svc.cluster.local:9115
   module: http_2xx
+  interval: 5s
   targets:
     staticConfig:
       static:
-        - https://mobilepay.dk
-        - https://mobilepay.fi
-        - https://vipps.no
-        - https://vipps.se
-        - https://signupview-we.prod-waf.cardpsp.dk
+        - https://signupview-we.sandbox-waf.cardpsp.dk
