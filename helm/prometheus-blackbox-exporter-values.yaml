@@ -184,6 +184,14 @@ config:
       timeout: 5s
       tcp:
         tls: true
+    
+    http_auth_test:
+      prober: http
+      timeout: 5s
+      http:
+        authorization:
+          type: Bearer
+          credentials_file: /etc/secrets/bearer-token
 
 # Set custom config path, other than default /config/blackbox.yaml. If let empty, path will be "/config/blackbox.yaml"
 # configPath: "/foo/bar"
@@ -198,12 +206,12 @@ extraConfigmapMounts: []
 
 ## Additional secret mounts
 # Defines additional mounts with secrets. Secrets must be manually created in the namespace.
-extraSecretMounts: []
-  # - name: secret-files
-  #   mountPath: /etc/secrets
-  #   secretName: blackbox-secret-files
-  #   readOnly: true
-  #   defaultMode: 420
+extraSecretMounts:
+  - name: bearer-token
+    mountPath: /etc/secrets
+    secretName: my-bearer-token
+    readOnly: true
+    defaultMode: 420
 
 resources: {}
   # limits:
