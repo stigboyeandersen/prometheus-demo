@@ -37,6 +37,12 @@ kubectl create namespace prometheus-blackbox
 helm install prometheus-blackbox prometheus-community/prometheus-blackbox-exporter -f helm/prometheus-blackbox-exporter-values.yaml
 ```
 
+#### Install Prometheus JSON exporter
+```sh
+kubectl create namespace prometheus-json
+helm install -n prometheus-json prometheus-json prometheus-community/prometheus-json-exporter -f helm/prometheus-json-exporter-values.yaml
+```
+
 #### Install Argo
 ```sh
 kubectl create namespace argo-cd
@@ -84,6 +90,7 @@ In case changes are made to one of the ```value.yaml``` files related to the Hel
 
 ```sh
 helm upgrade prometheus-blackbox prometheus-community/prometheus-blackbox-exporter -f helm/prometheus-blackbox-exporter-values.yaml
+helm upgrade -n prometheus-json prometheus-json  prometheus-community/prometheus-json-exporter -f helm/prometheus-json-exporter-values.yaml
 helm upgrade prometheus prometheus-community/kube-prometheus-stack -f helm/kube-prometheus-stack-values.yaml
 helm upgrade argo-cd argo/argo-cd -f helm/argo-cd-values.yaml
 ```

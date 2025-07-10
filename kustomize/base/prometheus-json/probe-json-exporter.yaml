@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: json-exporter-kong
+  labels:
+    release: prometheus
+spec:
+  jobName: json-exporter-kong
+  prober:
+    url: prometheus-json-prometheus-json-exporter.prometheus-json.svc.cluster.local:7979
+  module: kong_connect
+  targets:
+    staticConfig:
+      static:
+        - https://an-api-that-returns-json.com/my-service

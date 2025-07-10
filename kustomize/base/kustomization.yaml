@@ -6,4 +6,4 @@ resources:
   - ingress
   - prometheus
   - prometheus-blackbox
-  
+  - prometheus-json
